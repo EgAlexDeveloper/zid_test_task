@@ -3,7 +3,6 @@
 .sidebar {
     max-width: 320px;
     background-color: $color_primary;
-    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -34,7 +33,7 @@
     }
 
     .user {
-        color: #FFFFFF;
+        color: $color-base;
         font-size: 18px;
         line-height: 20px;
         position: relative;
@@ -83,40 +82,6 @@
 
             @media screen and (max-width: 1000px) {
                 display: none;
-            }
-        }
-
-        i {
-            font-size: 17px;
-
-            &:first-of-type {
-                @media screen and (max-width: 1000px) {
-                    display: none;
-                }
-            }
-        }
-
-        .logout {
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            position: absolute;
-            padding: 0;
-            left: 15px;
-            bottom: 0;
-            height: 22px;
-
-            @media screen and (max-width: 1000px) {
-                left: auto;
-                right: auto;
-                position: relative;
-                width: 100%;
-            }
-
-            i {
-                @media screen and (max-width: 1000px) {
-                    display: block;
-                }
             }
         }
     }
@@ -211,13 +176,13 @@
     }
 
     &__Cr {
-        background: #FFFFFF;
+        background: $color-base;
         min-height: 142px;
         margin-bottom: 4px;
         padding: 20px;
 
         &-title {
-            color: #333333;
+            color: $color-black;
             font-size: 14px;
             font-weight: bold;
             margin-top: 5px;
@@ -232,15 +197,6 @@
                 text-decoration: none;
             }
         }
-
-        &-button {
-            background: #4D39C4 !important;
-            font-size: 12px !important;
-            font-weight: bold;
-            padding: 7px 21px 9px !important;
-            text-decoration: none;
-            letter-spacing: normal !important;
-        }
     }
 
     &__Cl {
@@ -250,7 +206,7 @@
         padding: 20px;
 
         &-title {
-            color: #FFFFFF;
+            color: $color-base;
             font-size: 14px;
             font-weight: bold;
             line-height: 16px;
@@ -259,7 +215,7 @@
         }
 
         &-button {
-            background: #FFFFFF !important;
+            background: $color-base !important;
             color: #483BC8 !important;
             font-size: 12px !important;
             font-weight: bold;
@@ -283,7 +239,7 @@
 
         &-text {
             display: block;
-            color: #FFFFFF;
+            color: $color-base;
             font-size: 12px;
             line-height: 13px;
             text-align: center;
@@ -301,10 +257,6 @@ html {
                 .logout {
                     right: 10px;
                     left: auto;
-
-                    i {
-                        transform: rotate(0deg);
-                    }
                 }
             }
 

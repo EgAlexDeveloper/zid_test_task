@@ -57,8 +57,8 @@ const SideBar: FC<Props> = (props: Props) => {
     )
 
     return <>
-        <Col class="col sidebar">
-            <Link to="/" className="d-flex logo py-15">
+        <Col class="col sidebar py-5 px-0">
+            <Link to="/" className="d-flex logo">
                 {/* <img className='m-auto lg' src={logo} alt="logo" />
                 <img src={logo} className="sm" alt="logo-sm" /> */}
             </Link>

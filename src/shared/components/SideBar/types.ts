@@ -14,8 +14,12 @@ export type NavMenu = { list: NavItem[], title?: string };
 export const Nav: NavList = {
     "navList": [{
         link: '/',
-        icon: 'fa-home-lg-alt',
-        text: 'sidebar.home',
+        icon: 'fa-user',
+        text: 'sidebar.profile',
+    },{
+        link: '/',
+        icon: 'fa-credit-card-front',
+        text: 'sidebar.payment',
     }]
 };
 

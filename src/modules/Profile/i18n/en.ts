@@ -1,6 +1,6 @@
 const en = {
     profile: {
-        title: 'CR List'
+        title: 'Profile Page'
     }
 }
 

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'SanFranciscoDisplay';
+    src: url('../fonts/SanFranciscoDisplay-Light.eot');
+    src: url('../fonts/SanFranciscoDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SanFranciscoDisplay-Light.woff2') format('woff2'),
+        url('../fonts/SanFranciscoDisplay-Light.woff') format('woff'),
+        url('../fonts/SanFranciscoDisplay-Light.ttf') format('truetype'),
+        url('../fonts/SanFranciscoDisplay-Light.svg#SanFranciscoDisplay-Bold') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SanFranciscoDisplay';
+    src: url('../fonts/SanFranciscoDisplay-Regular.eot');
+    src: url('../fonts/SanFranciscoDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SanFranciscoDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/SanFranciscoDisplay-Regular.woff') format('woff'),
+        url('../fonts/SanFranciscoDisplay-Regular.ttf') format('truetype'),
+        url('../fonts/SanFranciscoDisplay-Regular.svg#SanFranciscoDisplay-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SanFranciscoDisplay';
+    src: url('../fonts/SanFranciscoDisplay-Medium.eot');
+    src: url('../fonts/SanFranciscoDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SanFranciscoDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/SanFranciscoDisplay-Medium.woff') format('woff'),
+        url('../fonts/SanFranciscoDisplay-Medium.ttf') format('truetype'),
+        url('../fonts/SanFranciscoDisplay-Medium.svg#SanFranciscoDisplay-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SanFranciscoDisplay';
+    src: url('../fonts/SanFranciscoDisplay-Bold.eot');
+    src: url('../fonts/SanFranciscoDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SanFranciscoDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/SanFranciscoDisplay-Bold.woff') format('woff'),
+        url('../fonts/SanFranciscoDisplay-Bold.ttf') format('truetype'),
+        url('../fonts/SanFranciscoDisplay-Bold.svg#SanFranciscoDisplay-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

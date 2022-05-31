@@ -1,0 +1,18 @@
+html,
+body {
+    margin: 0;
+    background: none;
+    font-family: 'SanFranciscoDisplay';
+}
+
+body {
+    min-height: 100%;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.main {
+    min-height: calc(100vh - #{$footer_hight});
+}

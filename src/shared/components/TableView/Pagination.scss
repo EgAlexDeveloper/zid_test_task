@@ -1,0 +1,32 @@
+.mu-pagination {
+    button {
+        min-height: 34px;
+        min-width: 34px;
+        border-radius: 0;
+        color: #3B3B3B;
+        font-size: 14px;
+        text-align: center;
+        border: none;
+        display: inline-block;
+        margin: 0 10px;
+
+        &.active {
+            font-weight: bold;
+            background-color: #ecebf9;
+        }
+
+        &:hover {
+            font-weight: bold;
+            background-color: #ecebf9;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:first-child,
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

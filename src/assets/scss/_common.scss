@@ -2,7 +2,8 @@ html,
 body {
     margin: 0;
     background: none;
-    font-family: 'SanFranciscoDisplay';
+    font-size: $size_default;
+    font-weight: 400;
 }
 
 body {
@@ -15,4 +16,15 @@ body {
 
 .main {
     min-height: calc(100vh - #{$footer_hight});
+}
+
+
+html {
+    &[dir=rtl] {
+        font-family: 'SF';
+
+        body {
+            font-family: 'SF';
+        }
+    }
 }

@@ -47,7 +47,7 @@ const WideLayout = (props: LayoutProps) => (
         <Row>
             <SideBar />
 
-            <Col class={`col h-100 py-15 ${props.isCenteredContent ? 'm-auto' : ''}`}>
+            <Col class={`col h-100 py-5 ${props.isCenteredContent ? 'm-auto' : ''}`}>
                 <Row class="h-100">
                     <Col class="col-12 mb-auto">
                         {props.children}

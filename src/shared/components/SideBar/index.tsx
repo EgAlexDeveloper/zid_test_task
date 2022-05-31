@@ -68,7 +68,7 @@ const SideBar: FC<Props> = (props: Props) => {
                 <i className='far fa-user icon' />
                 <span>
                     {/* {TODO User Name should rendered from redux} */}
-                    Moustafa Ahmed
+                    مصطفى ابراهيم
                 </span>
             </div>
 

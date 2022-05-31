@@ -49,9 +49,8 @@
 
         h6 {
             display: block;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            font-weight: 400;
+            font-weight: 500;
+            font-size: $size_xs;
 
             @media screen and (max-width: 1000px) {
                 display: none;
@@ -79,6 +78,7 @@
         span {
             padding: 0 10px;
             margin: 0;
+            font-weight: 700;
 
             @media screen and (max-width: 1000px) {
                 display: none;
@@ -95,7 +95,7 @@
         h4 {
             opacity: 0.5;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
+            
             font-weight: bold;
             padding: 15px 15px 0 0;
             margin-bottom: 0;
@@ -106,7 +106,7 @@
         }
 
         li {
-            font-size: 14px;
+            
             font-weight: 300;
             line-height: 16px;
 
@@ -116,6 +116,8 @@
                 display: block;
                 padding: 15px 15px;
                 transition: all 300ms;
+                font-weight: 400;
+                font-size: $size-xs;
 
                 @media screen and (max-width: 1000px) {
                     text-align: center;
@@ -144,7 +146,7 @@
                 }
 
                 &.active {
-                    background-color: #7E74DB;
+                    background-color: $color-secondary;
                     color: rgba(255, 255, 255, 1);
 
                     i {
@@ -155,7 +157,7 @@
 
             &:hover {
                 a {
-                    background-color: #7E74DB;
+                    background-color: $color-secondary;
                     color: rgba(255, 255, 255, 1);
 
                     i {
@@ -183,7 +185,6 @@
 
         &-title {
             color: $color-black;
-            font-size: 14px;
             font-weight: bold;
             margin-top: 5px;
         }
@@ -207,7 +208,6 @@
 
         &-title {
             color: $color-base;
-            font-size: 14px;
             font-weight: bold;
             line-height: 16px;
             margin-top: 5px;

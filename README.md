@@ -19,7 +19,7 @@ In the project directory to build an AOT, you can run:
 
 # ZID test app architecture
 
-the main template architecture depending on MVW 
+the main template architecture depending on MVW using Typescript Programming Language
 ### MVVM
 is used over Redux for shared data in the same VM
 ### MVC

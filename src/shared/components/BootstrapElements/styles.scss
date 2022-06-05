@@ -5,7 +5,7 @@
         label {
             font-weight: bold;
             font-size: $size_xs;
-            color: #666;
+            color: $color_primary;
         }
 
         .form-control {
@@ -14,7 +14,76 @@
             &.is-valid {
                 background: none;
                 padding: 15px;
-                border-color: #ddd
+                border-color: $color_primary;
+            }
+
+            &.is-invalid {
+                // background: none;
+                padding-block: 15px;
+            }
+        }
+
+        .invalid-feedback {
+            font-weight: bold;
+            font-size: $size_xxs;
+        }
+    }
+
+    &__radio {
+        cursor: pointer;
+        position: relative;
+        line-height: 1.1;
+        padding-right: 30px;
+        margin-left: 20px;
+
+        &_label {
+            top: 6px;
+            position: relative;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 24px;
+            width: 24px;
+            background-color: $color_base;
+            border-radius: 50%;
+            bottom: 0;
+            border: solid 2px $color_primary;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+            &:after {
+                content: "";
+                position: absolute;
+            }
+
+            &:checked~.checkmark {
+                border-color: $color_secondary;
+                display: block;
+                overflow: hidden;
+
+                &:after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    background-color: $color_secondary;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    margin: auto;
+                }
             }
         }
     }

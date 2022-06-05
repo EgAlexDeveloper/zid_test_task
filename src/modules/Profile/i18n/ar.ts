@@ -10,7 +10,20 @@ const ar = {
         female: 'انثى',
         date_of_birth: 'تاريخ الميلاد',
         validations: {
-            ...shared.default.ar.common.validations
+            nameAr: {
+                required: shared.default.ar.common.validations.required,
+                notLatin: shared.default.ar.common.validations.notLatin,
+            },
+            nameEn: {
+                required: shared.default.ar.common.validations.required,
+                latin: shared.default.ar.common.validations.latin,
+            },
+            date_of_birth: {
+                required: shared.default.ar.common.validations.required
+            },
+            gender: {
+                required: shared.default.ar.common.validations.required
+            }
         }
     }
 }

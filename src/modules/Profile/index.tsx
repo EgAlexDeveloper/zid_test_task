@@ -42,6 +42,20 @@ const ProfileComponent: FC<Props> = (props: Props) => {
 
     const submit = (event: FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
+
+        let validate = new BaseValidator(formState);
+        validate.analysis()
+            .then(controls => {
+                let results = validate.result(controls);
+                let form: FormGroup = new FormGroup({ ...results.form.controls });
+                updateForm(form);
+
+                Logger(results)
+
+                if (results.form.validity) {
+                    // postProfileDetails()
+                }
+            });
     };
 
     const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -52,84 +66,99 @@ const ProfileComponent: FC<Props> = (props: Props) => {
     };
 
     return <>
-
-
         <Card>
-            <CardHeader>
-                <h5 className='my-2'>{msgs.profile.title}</h5>
-            </CardHeader>
-            <CardBody>
-                <BtsFormElement action={submit} hasError={formState.validity} class="form-wrapper row">
-                    <Col class='col-md-4'>
-                        <InputGroup>
-                            <Label placeholder={msgs.profile.nameAr} for="nameAr" />
+            <BtsFormElement action={submit} hasError={formState.validity} class="form-wrapper">
+                <CardHeader>
+                    <h5 className='my-2'>{msgs.profile.title}</h5>
+                </CardHeader>
+                <CardBody>
+                    <Row>
+                        <Col class='col-md-4'>
+                            <InputGroup>
+                                <Label placeholder={msgs.profile.nameAr} for="nameAr" />
 
-                            <InputControl
-                                id="nameAr"
-                                name="nameAr"
-                                value={formState.controls.nameAr.value}
-                                action={onChange}
-                                hasError={!formState.controls.nameAr.validity}
-                                placeholder={msgs.profile.nameAr}
+                                <InputControl
+                                    id="nameAr"
+                                    name="nameAr"
+                                    value={formState.controls.nameAr.value}
+                                    action={onChange}
+                                    hasError={!formState.controls.nameAr.validity}
+                                    placeholder={msgs.profile.nameAr}
 
-                            />
+                                />
 
-                            {
-                                !formState.controls.nameAr.validity &&
-                                <FormErrors control={formState.controls.nameAr} msg="profile.validations.nameAr" />
-                            }
-                        </InputGroup>
-                    </Col>
+                                {
+                                    !formState.controls.nameAr.validity &&
+                                    <FormErrors control={formState.controls.nameAr} msg="profile.validations.nameAr" />
+                                }
+                            </InputGroup>
+                        </Col>
 
-                    <Col class='col-md-4'>
-                        <InputGroup>
-                            <Label placeholder={msgs.profile.nameEn} for="nameEn" />
+                        <Col class='col-md-4'>
+                            <InputGroup>
+                                <Label placeholder={msgs.profile.nameEn} for="nameEn" />
 
-                            <InputControl
-                                id="nameEn"
-                                name="nameEn"
-                                value={formState.controls.nameEn.value}
-                                action={onChange}
-                                hasError={!formState.controls.nameEn.validity}
-                                placeholder={msgs.profile.nameEn}
+                                <InputControl
+                                    id="nameEn"
+                                    name="nameEn"
+                                    value={formState.controls.nameEn.value}
+                                    action={onChange}
+                                    hasError={!formState.controls.nameEn.validity}
+                                    placeholder={msgs.profile.nameEn}
 
-                            />
+                                />
 
-                            {
-                                !formState.controls.nameEn.validity &&
-                                <FormErrors control={formState.controls.nameEn} msg="profile.validations.nameEn" />
-                            }
-                        </InputGroup>
-                    </Col>
+                                {
+                                    !formState.controls.nameEn.validity &&
+                                    <FormErrors control={formState.controls.nameEn} msg="profile.validations.nameEn" />
+                                }
+                            </InputGroup>
+                        </Col>
 
-                    <Col class='col-md-4'>
-                        <InputGroup>
-                            <Label placeholder={msgs.profile.date_of_birth} for="date_of_birth" />
+                        <Col class='col-md-4'>
+                            <InputGroup>
+                                <Label placeholder={msgs.profile.date_of_birth} for="date_of_birth" />
 
-                            <InputControl
-                                id="date_of_birth"
-                                name="date_of_birth"
-                                value={formState.controls.date_of_birth.value}
-                                action={onChange}
-                                hasError={!formState.controls.date_of_birth.validity}
-                                placeholder={msgs.profile.date_of_birth}
-                                type="date"
+                                <InputControl
+                                    id="date_of_birth"
+                                    name="date_of_birth"
+                                    value={formState.controls.date_of_birth.value}
+                                    action={onChange}
+                                    hasError={!formState.controls.date_of_birth.validity}
+                                    placeholder={msgs.profile.date_of_birth}
+                                    type="date"
 
-                            />
+                                />
 
-                            {
-                                !formState.controls.date_of_birth.validity &&
-                                <FormErrors control={formState.controls.date_of_birth} msg="profile.validations.date_of_birth" />
-                            }
-                        </InputGroup>
-                    </Col>
-                </BtsFormElement>
-            </CardBody>
+                                {
+                                    !formState.controls.date_of_birth.validity &&
+                                    <FormErrors control={formState.controls.date_of_birth} msg="profile.validations.date_of_birth" />
+                                }
+                            </InputGroup>
+                        </Col>
 
-            <CardFooter class='text-sm-start'>
-                <button className='btn btn-danger my-2 mx-2'>{msgs.common.cancel}</button>
-                <button className='btn btn-primary my-2'>{msgs.common.save}</button>
-            </CardFooter>
+                        <Col>
+                            <div className="py-3">
+                                <label className="form__radio">
+                                    <input type="radio" name="radio" id="radio" value="radio" />
+                                    <span className="form__radio_label">{msgs.profile.male}</span>
+                                    <span className="checkmark"></span>
+                                </label>
+                                <label className="form__radio">
+                                    <input type="radio" name="radio" id="radio2" value="radio2" />
+                                    <span className="form__radio_label">{msgs.profile.female}</span>
+                                    <span className="checkmark"></span>
+                                </label>
+                            </div>
+                        </Col>
+                    </Row>
+                </CardBody>
+
+                <CardFooter class='text-sm-start'>
+                    <button className='btn btn-danger my-2 mx-2'>{msgs.common.cancel}</button>
+                    <button className='btn btn-primary my-2'>{msgs.common.save}</button>
+                </CardFooter>
+            </BtsFormElement>
         </Card>
     </>
 };

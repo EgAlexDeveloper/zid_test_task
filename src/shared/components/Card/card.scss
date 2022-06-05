@@ -1,3 +1,11 @@
+@import '../../../assets/scss/vars';
+
 .card {
     border-radius: 0;
+
+    &-header {
+        h5 {
+            color: $color_primary;
+        }
+    }
 }

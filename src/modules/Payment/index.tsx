@@ -26,8 +26,8 @@ const Payment: FC<Props> = (props: Props) => {
         placeholder_name: new FormControl("", [Validators.required(), Validators.pattern(LATIN_VALIDATOR)]),
         card_number: new FormControl("", [Validators.required(), Validators.minLength(16), Validators.maxLength(16)]),
         cvv: new FormControl("", [Validators.minLength(3), Validators.maxLength(3), Validators.pattern(wholeNumbers)]),
-        expiration_month: new FormControl("", [Validators.required(), Validators.pattern(wholeNumbers)]),
-        expiration_year: new FormControl("", [Validators.required(), Validators.pattern(wholeNumbers)])
+        expiration_month: new FormControl("", [Validators.required(), Validators.min(1), Validators.max(12), Validators.maxLength(2), Validators.minLength(1), Validators.pattern(wholeNumbers)]),
+        expiration_year: new FormControl("", [Validators.required(), Validators.min(new Date().getFullYear()), Validators.maxLength(4), Validators.minLength(2), Validators.pattern(wholeNumbers)])
     });
 
 
@@ -53,7 +53,7 @@ const Payment: FC<Props> = (props: Props) => {
     };
 
     const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        let { name, value, checked } = event.currentTarget;
+        let { name, value } = event.currentTarget;
 
         formState.controls[name].setValue(value);
         updateForm({ ...formState })
@@ -128,7 +128,7 @@ const Payment: FC<Props> = (props: Props) => {
                             </InputGroup>
                         </Col>
 
-                        <Col class='col-12 my-4'>
+                        <Col class='col-md-6'>
                             <InputGroup>
                                 <Label placeholder={msgs.payment.card_number} for="card_number" />
 
@@ -178,6 +178,54 @@ const Payment: FC<Props> = (props: Props) => {
                                     }
                                 </div>
                             </InputGroup>
+                        </Col>
+
+                        <Col class='col-md-6'>
+                            <InputGroup>
+                                <Label placeholder={msgs.payment.expiryDate} for="" />
+                            </InputGroup>
+
+                            <div className={`date ${(!formState.controls.expiration_month.validity || !formState.controls.expiration_year.validity) ? 'is-invalid' : ''}`}>
+                                <div className='control'>
+                                    <InputControl
+                                        id="expiration_month"
+                                        name="expiration_month"
+                                        value={formState.controls.expiration_month.value}
+                                        action={onChange}
+                                        as="number"
+                                        hasError={!formState.controls.expiration_month.validity}
+                                        placeholder={msgs.payment.expiryMonth}
+                                        maxlength={2}
+                                        minlength={1}
+
+                                    />
+                                </div>
+
+                                <div className='control'>
+                                    <InputControl
+                                        id="expiration_year"
+                                        name="expiration_year"
+                                        as="number"
+                                        value={formState.controls.expiration_year.value}
+                                        action={onChange}
+                                        hasError={!formState.controls.expiration_year.validity}
+                                        placeholder={msgs.payment.expiryYear}
+                                        maxlength={4}
+                                        minlength={4}
+                                    />
+                                </div>
+                            </div>
+
+
+                            <Row>
+                                <Col class='col-6'>
+                                    <FormErrors class='d-block' control={formState.controls.expiration_month} msg="payment.validations.expiryMonth" />
+                                </Col>
+
+                                <Col class='col-6'>
+                                    <FormErrors class='d-block' control={formState.controls.expiration_year} msg="payment.validations.expiryYear" />
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </CardBody>

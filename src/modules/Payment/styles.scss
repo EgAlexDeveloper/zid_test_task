@@ -1,3 +1,4 @@
+@import '../../assets/scss/vars';
 
 .payment-number-w {
     position: relative;
@@ -15,5 +16,25 @@
         img {
             max-height: 100%;
         }
+    }
+}
+
+.date {
+    display: table;
+    width: 100%;
+    border: solid 1px $color_primary;
+
+    .control {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+        input {
+            border: none;
+        }
+    }
+
+    &.is-invalid {
+        border-color: #dc3545;
     }
 }

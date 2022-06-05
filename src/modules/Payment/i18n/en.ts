@@ -7,6 +7,8 @@ const en = {
         card_number: 'Card number',
         cvv: 'CVV',
         expiryDate: 'Expiry Date',
+        expiryMonth: 'Expiry Month',
+        expiryYear: 'Expiry Year',
         validations: {
             placeholder_name: {
                 required: shared.default.ar.common.validations.required,
@@ -24,6 +26,17 @@ const en = {
             },
             expiryDate: {
                 required: shared.default.ar.common.validations.required
+            },
+            expiryMonth: {
+                required: shared.default.ar.common.validations.required,
+                min: 'value can not be less than 1',
+                max: 'value can not be more than 12s',
+            },
+            expiryYear: {
+                required: shared.default.ar.common.validations.required,
+                min: `value can not be less than ${new Date().getFullYear()}`,
+                maxLength: 'value can not be more than 4 numbers',
+                minLength: 'value can not be less than 4 numbers',
             }
         }
     }

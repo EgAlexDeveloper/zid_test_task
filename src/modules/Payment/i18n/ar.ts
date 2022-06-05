@@ -7,6 +7,8 @@ const ar = {
         card_number: 'رقم البطاقة',
         cvv: 'رمز التحقق',
         expiryDate: 'تاريخ اللإنتهاء',
+        expiryMonth: 'الشهر',
+        expiryYear: 'السنة',
         validations: {
             placeholder_name: {
                 required: shared.default.ar.common.validations.required,
@@ -24,6 +26,17 @@ const ar = {
             },
             expiryDate: {
                 required: shared.default.ar.common.validations.required
+            },
+            expiryMonth: {
+                required: shared.default.ar.common.validations.required,
+                min: 'يجب الا يقل يمة الشهر عن رقم 1',
+                max: 'يجب الا يزيد الشهور عن 12 شهرا'
+            },
+            expiryYear: {
+                required: shared.default.ar.common.validations.required,
+                min: `يجب الا تقل السنه عن ${new Date().getFullYear()}`,
+                maxLength: 'القيمة المدخلة يجب ان تكون 4 ارقام صحيحة',
+                minLength: 'القيمة المدخلة يجب ان تكون 4 ارقام صحيحة',
             }
         }
     }

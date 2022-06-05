@@ -43,3 +43,4 @@ all validations depending on REGEX
 ### all template based on Bootstrap v5
 ### all UI elements created as abstracted components (card, card header, card footer, inputs)
 ### all styles written in SCSS https://sass-lang.com/ using BEM http://getbem.com/introduction/ 
+### all colors and logos that I used from the main ZID website https://zid.sa/

@@ -12,11 +12,11 @@ const ar = {
         validations: {
             nameAr: {
                 required: shared.default.ar.common.validations.required,
-                notLatin: shared.default.ar.common.validations.notLatin,
+                pattern: shared.default.ar.common.validations.notLatin,
             },
             nameEn: {
                 required: shared.default.ar.common.validations.required,
-                latin: shared.default.ar.common.validations.latin,
+                pattern: shared.default.ar.common.validations.latin,
             },
             date_of_birth: {
                 required: shared.default.ar.common.validations.required

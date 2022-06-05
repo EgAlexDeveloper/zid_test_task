@@ -16,6 +16,7 @@ import { Profile } from './types';
 import { useIntl } from 'react-intl';
 import { getProfileDetails } from './providers/api';
 import BtsFormElement from '../../shared/components/BootstrapElements/FormWrraper';
+import { LATIN_VALIDATOR, NOT_LATIN_VALIDATOR } from '../../shared/constants';
 
 type Props = {};
 
@@ -25,20 +26,28 @@ const ProfileComponent: FC<Props> = (props: Props) => {
     const msgs = useTranslations();
 
     const form: FormGroup = new FormGroup({
-        nameAr: new FormControl("", [Validators.required()]),
-        nameEn: new FormControl("", [Validators.required()]),
+        nameAr: new FormControl("", [Validators.required(), Validators.pattern(NOT_LATIN_VALIDATOR)]),
+        nameEn: new FormControl("", [Validators.required(), Validators.pattern(LATIN_VALIDATOR)]),
         date_of_birth: new FormControl("", [Validators.required()]),
+        gender: new FormControl("", [Validators.required()])
     });
 
     const [profile, updateProfile] = useState<Profile>();
     const [formState, updateForm] = useState<FormGroup>(form);
 
     useEffect(() => {
+        // TODO call current profile details API
+        // fetchCurrentProfileDetails
+    }, []);
+
+    const fetchCurrentProfileDetails = (): void => {
         getProfileDetails()
             .then(res => {
-                if (res.profile) updateProfile(res.profile);
+                if (res.profile) {
+                    updateProfile(res.profile);
+                }
             });
-    }, []);
+    };
 
     const submit = (event: FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
@@ -51,9 +60,9 @@ const ProfileComponent: FC<Props> = (props: Props) => {
                 updateForm(form);
 
                 Logger(results)
-
                 if (results.form.validity) {
-                    // postProfileDetails()
+                    // TODO call profile post API
+                    // postProfileDetails(results.form.payload)
                 }
             });
     };
@@ -138,24 +147,29 @@ const ProfileComponent: FC<Props> = (props: Props) => {
                         </Col>
 
                         <Col>
-                            <div className="py-3">
+                            <InputGroup class="py-3">
                                 <label className="form__radio">
-                                    <input type="radio" name="radio" id="radio" value="radio" />
+                                    <input type="radio" name="gender" id="male" value="male" onChange={onChange} />
                                     <span className="form__radio_label">{msgs.profile.male}</span>
                                     <span className="checkmark"></span>
                                 </label>
                                 <label className="form__radio">
-                                    <input type="radio" name="radio" id="radio2" value="radio2" />
+                                    <input type="radio" name="gender" id="female" value="female" onChange={onChange} />
                                     <span className="form__radio_label">{msgs.profile.female}</span>
                                     <span className="checkmark"></span>
                                 </label>
-                            </div>
+
+                                {
+                                    !formState.controls.gender.validity &&
+                                    <FormErrors class='d-block mt-3' control={formState.controls.gender} msg="profile.validations.gender" />
+                                }
+                            </InputGroup>
                         </Col>
                     </Row>
                 </CardBody>
 
                 <CardFooter class='text-sm-start'>
-                    <button className='btn btn-danger my-2 mx-2'>{msgs.common.cancel}</button>
+                    <button type='button' className='btn btn-danger my-2 mx-2'>{msgs.common.cancel}</button>
                     <button className='btn btn-primary my-2'>{msgs.common.save}</button>
                 </CardFooter>
             </BtsFormElement>

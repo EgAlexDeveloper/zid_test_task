@@ -4,7 +4,8 @@ import { useIntl } from 'react-intl';
 
 interface Props {
     control: Control,
-    msg: string
+    msg: string,
+    class?: string
 }
 
 const BtsFormErrors = (props: Props) => {
@@ -14,7 +15,7 @@ const BtsFormErrors = (props: Props) => {
         <>
             {
                 (!props.control.validity && props.control.errors) &&
-                <div className="invalid-feedback">
+                <div className={`invalid-feedback ${props.class}`}>
                     {
                         props.control.errors['required'] &&
                         <span className="d-block">{intl.formatMessage({ id: `${props.msg}.required` })}</span>

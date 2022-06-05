@@ -30,6 +30,11 @@
                 }
             }
         }
+
+        @media screen and (max-width: 1000px) {
+            margin-bottom: 50px;
+            padding-inline: 5px;
+        }
     }
 
     .user {
@@ -43,8 +48,7 @@
         margin-bottom: 30px;
 
         @media screen and (max-width: 1000px) {
-            display: block;
-            padding: 0;
+            display: none;
         }
 
         h6 {
@@ -175,6 +179,10 @@
     &__footer {
         padding: 0 4px;
         margin-top: auto;
+
+        @media screen and (max-width: 1000px) {
+            display: none;
+        }
     }
 
     &__Cr {

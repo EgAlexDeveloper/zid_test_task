@@ -9,7 +9,7 @@ import { injectIntl, WrappedComponentProps } from 'react-intl';
 import useTranslations from '../../../container/i18n/useTranslations';
 import { NavMenu, List } from './types';
 
-import logo from '../../../assets/img/zid-logo.png'
+import logo from '../../../assets/img/zid-logo-white.png'
 
 type Props = {} & WrappedComponentProps;
 
@@ -59,8 +59,8 @@ const SideBar: FC<Props> = (props: Props) => {
     return <>
         <Col class="col sidebar py-5 px-0">
             <Link to="/" className="d-flex logo">
-                {/* <img className='m-auto lg' src={logo} alt="logo" />
-                <img src={logo} className="sm" alt="logo-sm" /> */}
+                <img className='m-auto lg' src={logo} alt="logo" />
+                <img src={logo} className="sm" alt="logo-sm" />
             </Link>
 
             <div className='user'>
@@ -81,10 +81,10 @@ const SideBar: FC<Props> = (props: Props) => {
             <div className="sidebar__footer">
                 <div className="sidebar__copyrights">
                     <div className="sidebar__copyrights-logo">
-                        {/* <img src={logo} alt="ZID" /> */}
+                        <img src={logo} alt="ZID" />
                     </div>
                     <span className="sidebar__copyrights-text">{msgs.sidebar.developedBy}</span>
-                    <span className="sidebar__copyrights-text">{msgs.sidebar.copyrights}&copy;</span>
+                    {/* <span className="sidebar__copyrights-text">{msgs.sidebar.copyrights}&copy;</span> */}
                 </div>
 
             </div>

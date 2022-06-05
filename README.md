@@ -31,9 +31,9 @@ is used in Forms using ms-react-reactive-forms, this plugin is a full reactive f
 # ZID test app payment
 
 all validations depending on REGEX
-1- check if entered card number is VISA or MASTER CARD or else and min and max length is 16 numbers only
-2- check if expiry month between 1 to 12 and year start from the current year and higher
-3- check if card holder name written in latin not arabic letters
-4- check CVV number in case entered by the user to be only numbers and max and min length is 3
-5- prevent letters in numbers inputs
-6- all integration API simulated
+# check if entered card number is VISA or MASTER CARD or else and min and max length is 16 numbers only
+# check if expiry month between 1 to 12 and year start from the current year and higher
+# check if card holder name written in latin not arabic letters
+# check CVV number in case entered by the user to be only numbers and max and min length is 3
+# prevent letters in numbers inputs
+# all integration API simulated

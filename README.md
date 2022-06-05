@@ -1,11 +1,16 @@
-# Getting Started with Create React App
+# Set Zid App Env
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In your CMD install yarn in the global environment using
+### `npm i -g yarn`
 
+In the project directory to install all NPM packages, you can run:
+### `yarn`
+
+In the project directory to start the application, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.\

@@ -16,11 +16,6 @@ const NotFound = () => {
 							<div>
 								<p className="error-message"></p>
 							</div>
-							<a href={'/'}>
-								<span className="but-home">
-									{intl.formatMessage({ 'id': 'common.home' })}
-								</span>
-							</a>
 						</div>
 					</div>
 				</div>

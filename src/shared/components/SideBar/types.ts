@@ -17,7 +17,7 @@ export const Nav: NavList = {
         icon: 'fa-user',
         text: 'sidebar.profile',
     },{
-        link: '/',
+        link: '/payment',
         icon: 'fa-credit-card-front',
         text: 'sidebar.payment',
     }]

@@ -1,42 +1,137 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import useTranslations from '../../container/i18n/useTranslations';
 import { Logger } from '../../container/utilities';
-import { Col, Row } from '../../shared/components/BootstrapElements';
+import { Col, FormErrors, InputControl, InputGroup, Label, Row } from '../../shared/components/BootstrapElements';
+
+import { FormGroup, BaseValidator, FormControl, Validators } from "ms-react-reactive-form";
 
 import {
     Card,
     CardBody,
+    CardFooter,
     CardHeader
 } from '../../shared/components/Card';
 
 import { Profile } from './types';
-import { Link, useNavigate } from 'react-router-dom';
-import MotionLoading from '../../shared/components/MotionLoading';
 import { useIntl } from 'react-intl';
 import { getProfileDetails } from './providers/api';
-import { idText } from 'typescript';
+import BtsFormElement from '../../shared/components/BootstrapElements/FormWrraper';
 
 type Props = {};
 
-const Crs: FC<Props> = (props: Props) => {
+const ProfileComponent: FC<Props> = (props: Props) => {
     const intl = useIntl();
     const isArabic = intl.locale === 'ar';
     const msgs = useTranslations();
-    let navigate = useNavigate();
+
+    const form: FormGroup = new FormGroup({
+        nameAr: new FormControl("", [Validators.required()]),
+        nameEn: new FormControl("", [Validators.required()]),
+        date_of_birth: new FormControl("", [Validators.required()]),
+    });
+
     const [profile, updateProfile] = useState<Profile>();
+    const [formState, updateForm] = useState<FormGroup>(form);
 
     useEffect(() => {
         getProfileDetails()
             .then(res => {
-                if(res.profile) updateProfile(res.profile)
+                if (res.profile) updateProfile(res.profile);
             });
-    }, [])
+    }, []);
+
+    const submit = (event: FormEvent<HTMLFormElement>): void => {
+        event.preventDefault();
+    };
+
+    const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        let { name, value, checked } = event.currentTarget;
+
+        formState.controls[name].setValue(value);
+        updateForm({ ...formState })
+    };
 
     return <>
-        <div className='crList'>
-            <h2 className="card__title">{msgs.profile.title}</h2>
-        </div>
+
+
+        <Card>
+            <CardHeader>
+                <h5 className='my-2'>{msgs.profile.title}</h5>
+            </CardHeader>
+            <CardBody>
+                <BtsFormElement action={submit} hasError={formState.validity} class="form-wrapper row">
+                    <Col class='col-md-4'>
+                        <InputGroup>
+                            <Label placeholder={msgs.profile.nameAr} for="nameAr" />
+
+                            <InputControl
+                                id="nameAr"
+                                name="nameAr"
+                                value={formState.controls.nameAr.value}
+                                action={onChange}
+                                hasError={!formState.controls.nameAr.validity}
+                                placeholder={msgs.profile.nameAr}
+
+                            />
+
+                            {
+                                !formState.controls.nameAr.validity &&
+                                <FormErrors control={formState.controls.nameAr} msg="profile.validations.nameAr" />
+                            }
+                        </InputGroup>
+                    </Col>
+
+                    <Col class='col-md-4'>
+                        <InputGroup>
+                            <Label placeholder={msgs.profile.nameEn} for="nameEn" />
+
+                            <InputControl
+                                id="nameEn"
+                                name="nameEn"
+                                value={formState.controls.nameEn.value}
+                                action={onChange}
+                                hasError={!formState.controls.nameEn.validity}
+                                placeholder={msgs.profile.nameEn}
+
+                            />
+
+                            {
+                                !formState.controls.nameEn.validity &&
+                                <FormErrors control={formState.controls.nameEn} msg="profile.validations.nameEn" />
+                            }
+                        </InputGroup>
+                    </Col>
+
+                    <Col class='col-md-4'>
+                        <InputGroup>
+                            <Label placeholder={msgs.profile.date_of_birth} for="date_of_birth" />
+
+                            <InputControl
+                                id="date_of_birth"
+                                name="date_of_birth"
+                                value={formState.controls.date_of_birth.value}
+                                action={onChange}
+                                hasError={!formState.controls.date_of_birth.validity}
+                                placeholder={msgs.profile.date_of_birth}
+                                type="date"
+
+                            />
+
+                            {
+                                !formState.controls.date_of_birth.validity &&
+                                <FormErrors control={formState.controls.date_of_birth} msg="profile.validations.date_of_birth" />
+                            }
+                        </InputGroup>
+                    </Col>
+                </BtsFormElement>
+            </CardBody>
+
+            <CardFooter class='text-sm-start'>
+                <button className='btn btn-danger my-2 mx-2'>{msgs.common.cancel}</button>
+                <button className='btn btn-primary my-2'>{msgs.common.save}</button>
+            </CardFooter>
+        </Card>
     </>
 };
 
-export default Crs;
+export default ProfileComponent;

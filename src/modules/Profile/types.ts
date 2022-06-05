@@ -2,6 +2,8 @@ import { HttpResponse } from "../../shared/types";
 
 export type Profile = {};
 
+export type ProfilePayload = {};
+
 export class PutProfileResponse extends HttpResponse {
     profile: Profile | null = null;
 };

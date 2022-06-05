@@ -1,0 +1,21 @@
+@import '../../../assets/scss/vars';
+
+.form {
+    &-wrapper {
+        label {
+            font-weight: bold;
+            font-size: $size_xs;
+            color: #666;
+        }
+
+        .form-control {
+            border-radius: 0;
+
+            &.is-valid {
+                background: none;
+                padding: 15px;
+                border-color: #ddd
+            }
+        }
+    }
+}

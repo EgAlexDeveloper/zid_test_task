@@ -5,6 +5,7 @@ import Toast from "../shared/components/Toast";
 import Layout from '../shared/components/Layout/Layout';
 
 import ProfileRoutes from '../modules/Profile/routes';
+import PaymentRoutes from '../modules/Payment/routes';
 
 import { RouterModel } from "../shared/types";
 import { useSelector } from './store';
@@ -25,6 +26,7 @@ const publicRoutes: RouterModel[] = [
 
 export const routes = [
   ...ProfileRoutes,
+  ...PaymentRoutes,
   ...publicRoutes
 ];
 

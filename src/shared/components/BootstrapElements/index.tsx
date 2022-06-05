@@ -1,3 +1,5 @@
+import './styles.scss';
+
 import InputControl from './Input';
 import FormElement from './FormWrraper';
 import FormErrors from './Errors';

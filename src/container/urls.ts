@@ -3,3 +3,5 @@ export const api = "";
 
 // Profile
 export const profile_url = api.concat(`profile`);
+// payment
+export const payment_url = api.concat(`profile`);

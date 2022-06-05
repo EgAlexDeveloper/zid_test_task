@@ -2,10 +2,10 @@ import { profile_url } from '../../../container/urls';
 
 import { DELETE, GET, POST, PUT } from '../../../container/httpClient';
 import { HttpError } from '../../../shared/types';
-import { PutProfileResponse, PostProfileResponse, DeleteProfileResponse, GetProfileResponse, Profile } from '../types';
+import { PutProfileResponse, PostProfileResponse, DeleteProfileResponse, GetProfileResponse, ProfilePayload } from '../types';
 import { Logger } from '../../../container/utilities';
 
-export const putProfileDetails = async (profile: Profile): Promise<PutProfileResponse> => {
+export const putProfileDetails = async (profile: ProfilePayload): Promise<PutProfileResponse> => {
     let res: PutProfileResponse = new PutProfileResponse();
 
     try {
@@ -21,7 +21,7 @@ export const putProfileDetails = async (profile: Profile): Promise<PutProfileRes
     return res;
 };
 
-export const postProfileDetails = async (profile: Profile): Promise<PostProfileResponse> => {
+export const postProfileDetails = async (profile: ProfilePayload): Promise<PostProfileResponse> => {
     let res: PostProfileResponse = new PostProfileResponse();
 
     try {

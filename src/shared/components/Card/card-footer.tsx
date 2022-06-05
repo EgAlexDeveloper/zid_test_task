@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const CardFooter: FC<Props> = (props: Props) => {
     return <>
-        <div className={props.class ?? 'card-footer'}>
+        <div className={`card-footer ${props.class}`}>
             {props.children}
         </div>
     </>

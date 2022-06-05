@@ -18,6 +18,30 @@ body {
     min-height: calc(100vh - #{$footer_hight});
 }
 
+iframe {
+    display: none;
+}
+
+.btn {
+    &-primary {
+        background-color: $color_secondary;
+        border-color: $color_secondary;
+        font-weight: 500;
+        font-size: $size-sm;
+
+        &:hover,
+        &:focus {
+            background-color: $color_secondary;
+            border-color: $color_secondary;
+        }
+    }
+
+    &-danger {
+        font-weight: 500;
+        font-size: $size-sm;
+    }
+}
+
 
 html {
     &[dir=rtl] {

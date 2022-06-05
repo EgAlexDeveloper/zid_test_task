@@ -6,6 +6,11 @@
             font-weight: bold;
             font-size: $size_xs;
             color: $color_primary;
+
+            span {
+                vertical-align: middle;
+                display: inline-block;
+            }
         }
 
         .form-control {

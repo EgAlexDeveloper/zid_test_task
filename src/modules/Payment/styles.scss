@@ -1,0 +1,19 @@
+
+.payment-number-w {
+    position: relative;
+
+    .card-type {
+        position: absolute;
+        left: 15px;
+        top: 9px;
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        overflow: hidden;
+
+        img {
+            max-height: 100%;
+        }
+    }
+}

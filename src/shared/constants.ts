@@ -9,6 +9,12 @@ export const arabicRegex = /^([\x00-\x40\x5b-\x60\x7b-\x7f]|[\u0600-\u06FF]|\u20
 export const LATIN_VALIDATOR = /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s0-9,'().]*)$/g;
 export const NOT_LATIN_VALIDATOR = /^^[\u0621-\u064A0-9\s]+$/g;
 
+export const VISA_REGEX = /^(?:4[0-9]{16})$/;
+export const MASTERCARD_REGEX = /^(?:5[0-9]{16})$/;
+
+export const IS_VISA_REGEX = /^[4]/;
+export const IS_MASTERCARD_REGEX = /^[5]/;
+
 // numbers
 export const wholeNumbers = /^[0-9]\d*?$/g;
 export const naturalNumbers = /^[1-9]\d*$/g;

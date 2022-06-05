@@ -10,7 +10,9 @@ interface Props extends HTMLAttributes<HTMLFormElement> {
 const BtsLabel: FC<Props> = (props: Props) => {
     return (
         <label htmlFor={props.for} id={props.id} className={`${props.class ?? ""} form-label form__label`}>
-            {props.placeholder}
+            <span>{props.placeholder}</span>
+
+            {props.children}
         </label>
     )
 };

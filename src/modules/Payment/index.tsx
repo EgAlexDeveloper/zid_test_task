@@ -85,7 +85,7 @@ const Payment: FC<Props> = (props: Props) => {
                 </CardHeader>
                 <CardBody>
                     <Row>
-                        <Col class='col-md-9'>
+                        <Col class='col-md-9 mb-4'>
                             <InputGroup>
                                 <Label placeholder={msgs.payment.placeholder_name} for="placeholder_name" />
 
@@ -106,7 +106,7 @@ const Payment: FC<Props> = (props: Props) => {
                             </InputGroup>
                         </Col>
 
-                        <Col class='col-md-3'>
+                        <Col class='col-md-3 mb-4'>
                             <InputGroup>
                                 <Label placeholder={msgs.payment.cvv} for="cvv" />
 

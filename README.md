@@ -20,8 +20,11 @@ In the project directory to build an AOT, you can run:
 # ZID test app architecture
 
 the main template architecture depending on MVW 
-MVVM is used over Redux for shared data in the same VM
-MVC is used to relate between Components and Logic Layers like API calling Layers
-MVP is used in Forms using ms-react-reactive-forms, this plugin is a full reactive forms for react developed and deployed over NPM last year by me (for any support please be free to send me any time)
+### MVVM
+is used over Redux for shared data in the same VM
+### MVC
+is used to relate between Components and Logic Layers like API calling Layers
+### MVP
+is used in Forms using ms-react-reactive-forms, this plugin is a full reactive forms for react developed and deployed over NPM last year by me (for any support please be free to send me any time)
 
 

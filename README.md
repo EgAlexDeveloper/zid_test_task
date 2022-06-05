@@ -37,3 +37,9 @@ all validations depending on REGEX
 ### check CVV number in case entered by the user to be only numbers and max and min length is 3
 ### prevent letters in numbers inputs
 ### all integration API simulated
+
+# ZID test app UI
+
+### all template based on Bootstrap v5
+### all UI elements created as abstracted components (card, card header, card footer, inputs)
+### all styles written in SCSS using BEM http://getbem.com/introduction/ 
